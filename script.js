@@ -18,21 +18,19 @@ let warning = '';
 let playing = 'false';
 
 
+reset();
 // functions
 
 function itemClick(event) {
 	let item = event.target.getAttribute('data-item');
-	if(square[item] === '') {
+	if(playing && square[item] === '') {
 		square[item] = player;
-
 		renderSquare()
 		togglePlayer()
 	}
 }
 
 function reset() {
-	warning = '';
-
 	let random = Math.floor(Math.random() * 2)
 	player = (random === 0) ? 'X' : 'O';
 
@@ -69,10 +67,10 @@ function togglePlayer() {
 
 function checkGame() {
 	if(checkWinnerFor('X')) {
-		warning = '"X" venceu o jogo!';
+		warning = '"X" venceu!';
 		playing = false;
 	} else if (checkWinnerFor('O')) {
-		warning = 'O "O" venceu o jogo!';
+		warning = '"O" venceu!';
 		playing = false;
 	} else if (isFull()) {
 		warning = 'Empate!'
@@ -83,16 +81,16 @@ function checkGame() {
 
 function checkWinnerFor(player) {
 	let endGame = [
-		'a1, a2, a3',
-		'b1, b2, b3',
-		'c1, c2, c3',
+		'a1,a2,a3',
+		'b1,b2,b3',
+		'c1,c2,c3',
 
-		'a1, b1, c1',
-		'a2, b2, c2',
-		'a3, b3, c3',
+		'a1,b1,c1',
+		'a2,b2,c2',
+		'a3,b3,c3',
 
-		'a1, b2, c3',
-		'a3, b2, c1'
+		'a1,b2,c3',
+		'a3,b2,c1'
 		];
 
 		for(let k in endGame) {
