@@ -4,7 +4,7 @@ Esse é um dos exercícios do curso da B7Web. A estrutura HTML e CSS foi disponi
 
 #How to play?
 
-1 - Click in button 'Resetar';
+1 - Click in button 'Reset';
 
 2 - The player will be selected randomly;
 
